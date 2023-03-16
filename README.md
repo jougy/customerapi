@@ -12,18 +12,21 @@ This is an example of a simple API built using the Rust programming language and
 
 ## Functions
 ### To create a new customer:
-curl --header "Content-Type: application/json" 
- ```    
-     request POST 
-     {
-     "first_name”:”Vitalik”,
-        "last_name”:””Buterin,
-        "email”:”vitalik@ethereum.org”,
-        "associated_ethereum_addresses":["0xab5801a7d398351b8be11c439e05c5b3259aec9b","0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5"]
-     }
- http://localhost:3000/customers
 ```
-### To retrieve a customer by ID):
+curl --header "Content-Type: application/json" \
+     --request POST \
+     --data '{
+        "first_name": "Vitalik",
+        "last_name": "Buterin",
+        "email": "vitalik@ethereum.org",
+        "associated_ethereum_addresses": [
+            "0xab5801a7d398351b8be11c439e05c5b3259aec9b",
+            "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5"
+        ]
+     }' \
+     localhost:3000/customers
+```
+### To retrieve a customer by ID:
 
 ```
 curl http://localhost:3000/customer/{ID} 
